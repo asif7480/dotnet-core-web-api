@@ -1,0 +1,60 @@
+<h2 class="text-center my-5">Employee Management System</h2>
+
+<div class="container">
+    <div class="col-md-6 mx-auto">
+        <form>
+            <div class="mb-3">
+                <label class="form-label" for="name">name</label>
+                <input class="form-control" type="text" name="name" id="name" [(ngModel)]="employeeObj.name" placeholder="Enter name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="designation">designation</label>
+                <input class="form-control" type="text" name="designation" id="designation" [(ngModel)]="employeeObj.designation" placeholder="Enter designation">
+            </div>
+
+
+            <div>
+                <button (click)="addEmployee()" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+    <div class="container">
+        <div class="col-md-10 mx-auto text-center">
+            <h2 class="text-center my-3">All Users</h2>
+            <button class="btn btn-success mb-3" (click)="getEmployees()">fetch Employees</button>
+    
+                <!-- table start -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>       
+                    
+                    <tbody>
+                        @for(employee of employees; track $index){
+                            <tr>
+                                <td>{{ employee.id }}</td>
+                                <td>{{ employee.name }}</td>
+                                <td>{{ employee.designation }}</td>
+                                <td>
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+
+    <!-- table end -->
